@@ -7,6 +7,8 @@ namespace Berlino
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+			var p = new DescriptorParser();
+			p.Parse("pk(sh)");
         }
     }
 }
