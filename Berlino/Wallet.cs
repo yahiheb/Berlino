@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Berlino.KeyManagement;
 using NBitcoin;
@@ -21,7 +19,7 @@ namespace Berlino
 
 		private void ProcessTransaction(SmartTransaction tx)
 		{
-			if (!tx.Transaction.IsCoinBase && !Coins.CreatedBy(tx.GetHash()).Any()) 
+			if (!tx.Transaction.IsCoinBase && !Coins.CreatedBy(tx.GetHash()).Any())
 			{
 				// Transactions we already have and processed would be "double spends" but they shouldn't.
 				var doubleSpends = Coins.SpentBy(tx.Transaction.Inputs);
@@ -70,7 +68,7 @@ namespace Berlino
 				if (Coins.TryAdd(newCoin))
 				{
 					// Make sure there's always 21 clean keys generated and indexed.
-					var keyRegistry = foundKey.IsInternal ? KeyManager.InternalKeys : KeyManager.ExternalKeys; 
+					var keyRegistry = foundKey.IsInternal ? KeyManager.InternalKeys : KeyManager.ExternalKeys;
 					keyRegistry.EnsureEnoughKeys();
 				}
 				else // If we had this coin already.
