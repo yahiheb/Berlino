@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using NBitcoin;
 using Xunit;
 
@@ -53,3 +54,4 @@ namespace Berlino.Tests
 		}
 	}
 }
+#endif
